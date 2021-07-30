@@ -19,18 +19,18 @@ namespace BotGitHub.Client
         }
 
         
-        public async Task<List<GitHubRepo>> GetRepository(string repoName, int limit )
+        public async Task<List<GitHubRepo>> GetRepository(string orgName, int upperLimit )
         {
             try
             {
                 var options = new ApiOptions()
                 {
-                    PageSize = limit,
+                    PageSize = upperLimit,
                     PageCount = 1
                 };
 
                 var github = new GitHubClient(new ProductHeaderValue("GitHubBot"));
-                IReadOnlyList<Repository> list = await github.Repository.GetAllForOrg(repoName, options);                
+                IReadOnlyList<Repository> list = await github.Repository.GetAllForOrg(orgName, options);                
 
                 List<GitHubRepo> listFinal = new List<GitHubRepo>() {                    
                     new GitHubRepo(){ Name="",Description=""},
@@ -43,10 +43,20 @@ namespace BotGitHub.Client
                 int counter = 0;
 
                 foreach (Repository r in list) 
-                {                    
-                    listFinal[counter].Name = (r.Name);
-                    listFinal[counter].Description = (r.Description);
-                    counter++;
+                {
+                    if (r.Language == "C#")
+                    {
+                        listFinal[counter].Name = (r.Name);
+                        listFinal[counter].Description = (r.Description);
+                        counter++;
+                    }
+                   
+
+                    if (counter == 5)
+                    {
+                        break;
+                    }
+
                 }               
 
                 return listFinal;

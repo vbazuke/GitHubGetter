@@ -22,11 +22,18 @@ namespace BotGitHub.Controllers
             _gitHubRepoClient = gitHubRepoClient;
         }
 
-        // GET: GitHubRepo?repoName={repoName}&limit={limit}
+        // GET: GitHubRepo?orgName={orgName}&upperLimit={upperLimit}
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] string repoName, int limit)
+        public async Task<IActionResult> Get([FromQuery] string orgName, int upperLimit)
         {
-            return Ok(await _gitHubRepoClient.GetRepository(repoName, limit));
+           var check = await _gitHubRepoClient.GetRepository(orgName, upperLimit);
+
+            if (check == null)
+            { 
+                return StatusCode(500);  
+            }
+
+            return Ok(check);
         }
     }
 }
