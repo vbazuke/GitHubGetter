@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "E8LjR4yUif8MCS8/cS79K/IljVKAsJJtbTtDZr/slH4oKw2qvjaThalYElTYh+2Zod4eL2pHj6YzvxOep0YgMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vbazu\\source\\repos\\GitHubGetter\\GitHubGetter\\GitHubGetter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vbazu\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512",
+    "C:\\Users\\vbazu\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512"
+  ],
+  "logs": []
+}
