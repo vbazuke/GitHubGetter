@@ -1,4 +1,4 @@
-API construída usando .NET 3.1 utilizando o Visual Studio 2019, que funciona como um intermediário de requests para o API REST do GitHub.
+API construída usando C#/.NET 3.1 utilizando o Visual Studio 2019, que funciona como um intermediário de requests para o API REST do GitHub.
 
 Foi utilizado o pacote Octokit.NET para facilitar as requisições. https://github.com/octokit/octokit.net
 
